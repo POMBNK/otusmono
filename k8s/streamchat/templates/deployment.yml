@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamchat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamchat
+  template:
+    metadata:
+      labels:
+        app: streamchat
+    spec:
+      containers:
+        - name: streamchat
+          image: pombnk/diplomastreams:latest
+          ports:
+            - containerPort: 8082  # Exposing port 8083

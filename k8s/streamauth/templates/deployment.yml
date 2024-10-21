@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamauth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamauth
+  template:
+    metadata:
+      labels:
+        app: streamauth
+    spec:
+      containers:
+        - name: streamauth
+          image: pombnk/authdiploma:latest
+          ports:
+            - containerPort: 8081  # Exposing port 8081
+
+

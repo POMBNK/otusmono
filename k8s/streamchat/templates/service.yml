@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamchat
+spec:
+  type: ClusterIP
+  selector:
+    app: streamchat
+  ports:
+    - port: 8082
+      targetPort: 8082

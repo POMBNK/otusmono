@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediaserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mediaserver
+  template:
+    metadata:
+      labels:
+        app: mediaserver
+    spec:
+      containers:
+        - name: mediaserver
+          image: pombnk/mediartx:latest
+          ##image: bluenviron/mediamtx:1.8.3-ffmpeg
+          ports:
+            - containerPort: 3999 # Exposing port 8083
